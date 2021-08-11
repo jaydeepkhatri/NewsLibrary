@@ -7,8 +7,9 @@ const Main = () => {
 	const [pageNumber, setPageNumber] = useState('1');
 	const [totalPage, setTotalPage] = useState('0');
 	const [loading, setLoading] = useState(true);
+	const [language, setLanguage] = useState('en');
 	useEffect(() => {
-		axios.get(`https://newsapi.org/v2/top-headlines?category=business&page=${pageNumber}&apiKey=${process.env.REACT_APP_KEY}`)
+		axios.get(`https://newsapi.org/v2/top-headlines?category=business&page=${pageNumber}&language=${language}&apiKey=${process.env.REACT_APP_KEY}`)
 			.then(
 				(e) => {
 					console.log(e.data)
@@ -17,10 +18,11 @@ const Main = () => {
 					setLoading(false);
 				}
 			);
-	}, [pageNumber]);
+	}, [pageNumber, language]);
 
 	const changepage = (page) => {
 		setPageNumber(page);
+		setLoading(true);
 	}
 
 

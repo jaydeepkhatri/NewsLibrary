@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #f0f0f0;
+}
+
+@import "./partials/navbar";
+@import "./partials/carousel";
+@import "./partials/main";
+@import "./partials/scrollup";

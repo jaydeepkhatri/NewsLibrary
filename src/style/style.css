@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #f0f0f0;
+}
+
+.navbar {
+  padding: 20px 36px;
+  background: #12141d;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .title {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.navbar .github {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.carousel {
+  width: 100%;
+  color: black;
+}
+
+.carousel .slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  height: 500px;
+}
+
+.carousel .slide {
+  height: 500px;
+  min-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
+  height: inherit;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.carousel .slide .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#000), to(rgba(0, 0, 0, 0.6)));
+  background: linear-gradient(to right, #000, rgba(0, 0, 0, 0.6));
+}
+
+.carousel .slide h2 {
+  z-index: 5;
+  padding-left: 200px;
+}
+
+.maincontainer {
+  max-width: 1000px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.maincontainer .news {
+  background: #fff;
+  padding: 12px 20px;
+  border: 1px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0 10px 20px rgba(100, 100, 100, 0.1);
+          box-shadow: 0 10px 20px rgba(100, 100, 100, 0.1);
+}
+
+.maincontainer .news .description {
+  margin-top: 12px;
+}
+
+.maincontainer .news .links {
+  margin-top: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.maincontainer .news .links .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.maincontainer .news .links .social .link {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 6px;
+  border-radius: 50%;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.maincontainer .news .links .social .fb {
+  background: #4267b2;
+}
+
+.maincontainer .news .links .social .twt {
+  background: #1da1f2;
+}
+
+.maincontainer .news .links .readfull {
+  text-decoration: none;
+  color: #202229;
+}
+
+@media screen and (max-width: 576px) {
+  .maincontainer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.scrollup {
+  opacity: 0;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.scrollup:hover {
+  background: #1f1f1f;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 576px) {
+  .scrollup {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

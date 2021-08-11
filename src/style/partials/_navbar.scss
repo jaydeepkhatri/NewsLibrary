@@ -1,0 +1,15 @@
+.navbar {
+    padding: 20px 36px;
+    background: #12141d;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    .title {
+        flex-grow: 1;
+    }
+    .github {
+        font-size: 24px;
+        color: #fff;
+        text-decoration: none;
+    }
+}

@@ -4,7 +4,7 @@ const Navbar = () => {
 			<h2 className="title">
 				PewNews
 			</h2>
-			<a href="#" className="github">
+			<a href="https://github.com/jaydeepkhatri/PewNews" className="github">
 				<i className="fab fa-github"></i>
 			</a>
 		</nav>

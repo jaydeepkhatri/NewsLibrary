@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Pages from "../Pages";
+import Covidinfo from "../Covidinfo";
 import axios from "axios";
 
 const Main = () => {
@@ -43,57 +44,62 @@ const Main = () => {
 				{
 					loading ? <h1 align="center">Hang on.. Fetching</h1> :
 						<>
-							<div className="settings">
-								<select onChange={languageChange} value={language}>
-									<option value="ar">Arabic</option>
-									<option value="de">German</option>
-									<option value="en">English</option>
-									<option value="es">Spanish</option>
-									<option value="fr">French</option>
-									<option value="he">Hebrew</option>
-									<option value="it">Italian</option>
-									<option value="nl">Dutch</option>
-									<option value="no">Norwegian</option>
-									<option value="pt">Portuguese</option>
-									<option value="ru">Russian</option>
-									<option value="se">Sami</option>
-									<option value="zh">Chinese</option>
-								</select>
-								<div className="search">
-									<select onChange={categoryChange} value={category}>
-										<option value="business">Business</option>
-										<option value="entertainment">Entertainment</option>
-										<option value="general">General</option>
-										<option value="health">Health</option>
-										<option value="science">Science</option>
-										<option value="sports">Sports</option>
-										<option value="technology">Technology</option>
+							<div className="leftcontainer">
+								<div className="settings">
+									<select onChange={languageChange} value={language}>
+										<option value="ar">Arabic</option>
+										<option value="de">German</option>
+										<option value="en">English</option>
+										<option value="es">Spanish</option>
+										<option value="fr">French</option>
+										<option value="he">Hebrew</option>
+										<option value="it">Italian</option>
+										<option value="nl">Dutch</option>
+										<option value="no">Norwegian</option>
+										<option value="pt">Portuguese</option>
+										<option value="ru">Russian</option>
+										<option value="se">Sami</option>
+										<option value="zh">Chinese</option>
 									</select>
+									<div className="search">
+										<select onChange={categoryChange} value={category}>
+											<option value="business">Business</option>
+											<option value="entertainment">Entertainment</option>
+											<option value="general">General</option>
+											<option value="health">Health</option>
+											<option value="science">Science</option>
+											<option value="sports">Sports</option>
+											<option value="technology">Technology</option>
+										</select>
+									</div>
+								</div>
+
+								<div className="newscontainer">
+									{
+										news.articles.map((article, index) =>
+											<div className="news" key={index}>
+												<div className="upper">
+													<img src={article.urlToImage} alt={article.title} className="newsimage" />
+													<h3 className="newstitle">{article.title}</h3>
+													<p className="source">Source - {article.source.name}</p>
+													<p className="description">{article.description}</p>
+												</div>
+
+												<div className="links">
+													<div className="social">
+														<a href="google.com" className="link fb"><i className="fab fa-facebook"></i></a>
+														<a href="google.com" className="link twt"><i className="fab fa-twitter"></i></a>
+													</div>
+													<a href={article.url} referrerPolicy="no-referrer" className="readfull">Read More <i className="fa fa-chevron-right"></i></a>
+												</div>
+											</div>
+										)
+									}
+									<Pages current={pageNumber} changepage={changepage} total={totalPage} />
 								</div>
 							</div>
-
-							<div className="newscontainer">
-								{
-									news.articles.map((article, index) =>
-										<div className="news" key={index}>
-											<div className="upper">
-												<img src={article.urlToImage} alt={article.title} className="newsimage" />
-												<h3 className="newstitle">{article.title}</h3>
-												<p className="source">Source - {article.source.name}</p>
-												<p className="description">{article.description}</p>
-											</div>
-
-											<div className="links">
-												<div className="social">
-													<a href="google.com" className="link fb"><i className="fab fa-facebook"></i></a>
-													<a href="google.com" className="link twt"><i className="fab fa-twitter"></i></a>
-												</div>
-												<a href={article.url} referrerPolicy="no-referrer" className="readfull">Read More <i className="fa fa-chevron-right"></i></a>
-											</div>
-										</div>
-									)
-								}
-								<Pages current={pageNumber} changepage={changepage} total={totalPage} />
+							<div className="rightcontainer">
+								<Covidinfo />
 							</div>
 						</>
 				}

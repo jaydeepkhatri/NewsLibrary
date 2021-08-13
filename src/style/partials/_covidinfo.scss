@@ -1,0 +1,37 @@
+.covidcountry {
+    margin-bottom: 24px;
+    .country {
+        font-size: 1.5rem;
+    }
+    .cases {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        div {
+            background: $white;
+            padding: 8px 16px;
+            box-shadow: 0 10px 20px rgba(100,100,100,0.1);
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 2px;
+            }
+            span {
+                font-size: 20px;
+            }
+        }
+        .confirmed {
+            border-left: 5px solid rgb(230, 27, 0);
+        }
+        .active {
+            border-left: 5px solid rgb(0, 107, 214);
+        }
+        .recovered {
+            border-left: 5px solid rgb(0, 206, 10);
+        }
+        .death {
+            border-left: 5px solid rgb(0, 0, 0);
+        }
+    }
+}

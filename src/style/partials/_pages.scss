@@ -2,16 +2,15 @@
     padding: 40px;
     grid-column-start: 1;
     grid-column-end: 3;
-    display: flex;
-    align-items: center;
+    @include flexcenter;
     justify-content: center;
     .pagebtn {
         margin: 0 20px;
         padding: 8px 16px;
         border-radius: 4px;
         border: 0;
-        background: #1c222a;
-        color: #fff;
+        background: $black;
+        color: $white;
         cursor: pointer;
     }
 }

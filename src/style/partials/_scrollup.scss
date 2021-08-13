@@ -6,9 +6,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #000;
+    background: $black;
     cursor: pointer;
-    color: #fff;
+    color: $white;
     border: none;
     transition: 0.2s;
     &:hover {

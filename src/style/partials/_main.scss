@@ -14,8 +14,19 @@
         flex-direction: column;
         justify-content: space-between;
         box-shadow: 0 10px 20px rgba(100,100,100,0.1);
+        .newsimage {
+            width: 100%;
+        }
+        .newstitle {
+            margin-top: 12px;
+        }
+        .source {
+            margin-top: 6px;
+            color: #888;
+        }
         .description {
             margin-top: 12px;
+            text-align: justify;
         }
         .links {
             margin-top: 12px;

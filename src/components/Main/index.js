@@ -32,10 +32,13 @@ const Main = () => {
 				{
 					loading ? <h1 align="center">Hang on.. Fetching</h1> :
 						<> {
+
 							news.articles.map((article, index) =>
 								<div className="news" key={index}>
 									<div className="upper">
+										<img src={article.urlToImage} className="newsimage" />
 										<h3 className="newstitle">{article.title}</h3>
+										<p className="source">Source - {article.source.name}</p>
 										<p className="description">{article.description}</p>
 									</div>
 
@@ -44,7 +47,7 @@ const Main = () => {
 											<a href="google.com" className="link fb"><i className="fab fa-facebook"></i></a>
 											<a href="google.com" className="link twt"><i className="fab fa-twitter"></i></a>
 										</div>
-										<a href="google.com" referrerPolicy="no-referrer" className="readfull">Read Full <i className="fa fa-chevron-right"></i></a>
+										<a href={article.url} referrerPolicy="no-referrer" className="readfull">Read Full <i className="fa fa-chevron-right"></i></a>
 									</div>
 								</div>
 							)

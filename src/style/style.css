@@ -18,6 +18,9 @@ body {
   padding: 20px 36px;
   background: #12141d;
   color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,8 +71,22 @@ body {
           box-shadow: 0 10px 20px rgba(100, 100, 100, 0.1);
 }
 
+.maincontainer .news .newsimage {
+  width: 100%;
+}
+
+.maincontainer .news .newstitle {
+  margin-top: 12px;
+}
+
+.maincontainer .news .source {
+  margin-top: 6px;
+  color: #888;
+}
+
 .maincontainer .news .description {
   margin-top: 12px;
+  text-align: justify;
 }
 
 .maincontainer .news .links {

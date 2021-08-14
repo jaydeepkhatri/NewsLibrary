@@ -284,6 +284,13 @@ body {
   }
 }
 
+.footer {
+  padding: 16px;
+  background: #1b1b22;
+  color: #FFF;
+  text-align: center;
+}
+
 .scrollup {
   opacity: 0;
   position: fixed;

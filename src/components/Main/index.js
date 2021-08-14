@@ -87,8 +87,8 @@ const Main = () => {
 
 												<div className="links">
 													<div className="social">
-														<a href="google.com" className="link fb"><i className="fab fa-facebook"></i></a>
-														<a href="google.com" className="link twt"><i className="fab fa-twitter"></i></a>
+														<a href={`http://facebook.com/sharer/sharer.php?u=${article.url}&quote=${article.title}`} className="link fb"><i className="fab fa-facebook"></i></a>
+														<a href={`http://twitter.com/share?url=${article.url}`} className="link twt"><i className="fab fa-twitter"></i></a>
 													</div>
 													<a href={article.url} referrerPolicy="no-referrer" className="readfull">Read More <i className="fa fa-chevron-right"></i></a>
 												</div>

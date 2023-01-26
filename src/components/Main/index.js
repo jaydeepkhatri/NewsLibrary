@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import Pages from "../Pages";
-import Covidinfo from "../Covidinfo";
 import axios from "axios";
 
 const Main = () => {
@@ -97,9 +96,6 @@ const Main = () => {
 									}
 									<Pages current={pageNumber} changepage={changepage} total={totalPage} />
 								</div>
-							</div>
-							<div className="rightcontainer">
-								<Covidinfo />
 							</div>
 						</>
 				}

@@ -1,0 +1,8 @@
+@mixin flexcenter {
+    display: flex;
+    align-items: center;
+}
+@mixin flexadjust ($justi)  {
+    @include flexcenter;
+    justify-content: $justi;
+}

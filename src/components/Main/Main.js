@@ -1,5 +1,6 @@
+import "./main.scss";
 import React,{ useState, useEffect } from "react";
-import Pages from "../Pages";
+import {Pages} from "../";
 import axios from "axios";
 
 const Main = () => {

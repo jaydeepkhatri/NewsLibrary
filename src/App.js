@@ -1,9 +1,6 @@
 import React from "react";
-import "./style/style.css";
-import Navbar from "./components/Navbar";
-import Main from "./components/Main";
-import ScrollUp from "./components/ScrollUp";
-import Footer from "./components/Footer";
+import "./style/main.scss";
+import { Navbar, Main, Footer, ScrollUp } from "./components";
 function App() {
   return (
     <>

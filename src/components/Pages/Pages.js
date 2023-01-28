@@ -1,4 +1,5 @@
 import  React,{ useState, useEffect } from "react";
+import "./pages.scss";
 
 const Pages = ({ current, changepage, total }) => {
 

@@ -80,7 +80,7 @@ const Main = () => {
 											<div className="news" key={index}>
 												<div className="upper">
 													<img src={article.urlToImage} alt={article.title} className="newsimage" />
-													<h3 className="newstitle">{article.title}</h3>
+													<a href={article.url} className="newstitle">{article.title}</a>
 													<p className="source">Source - {article.source.name}</p>
 													<p className="description">{article.description}</p>
 												</div>

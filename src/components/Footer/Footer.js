@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <p>Crafted by JD.</p>
-            <p>Data is provided from newsapi.org.</p>
+            <p>Data is provided from newsapi.org & open.er-api.com.</p>
         </footer>
     )
 }

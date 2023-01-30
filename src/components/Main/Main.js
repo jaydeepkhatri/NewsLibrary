@@ -1,6 +1,6 @@
 import "./main.scss";
 import React,{ useEffect, useContext } from "react";
-import {Pages} from "../";
+import { Pages, Finance} from "../";
 import { BsFacebook } from "react-icons/bs";
 import { FaChevronRight } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
@@ -8,18 +8,21 @@ import axios from "axios";
 import { AppContext } from "../../App";
 
 const Main = () => {
-	const { pageNumber, language, category, loading, news, setNews, setTotalPage, setLoading, setLanguage, setCategory } = useContext(AppContext)
+	const { pageNumber, language, category, loading, news, setNews, setTotalPage, setLoading, setLanguage, setCategory, setFinanceRates } = useContext(AppContext)
 	
 	useEffect(() => {
-		axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${pageNumber}&language=${language}&apiKey=${process.env.REACT_APP_KEY}`)
-			.then(
-				(e) => {
-					setNews(e.data);
-					setTotalPage(e.data.totalResults);
-					setLoading(false);
-				}
-			);
-	}, [pageNumber, language, category, setNews, setTotalPage, setLoading]);
+		axios.all([
+			axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${pageNumber}&language=${language}&apiKey=${process.env.REACT_APP_KEY}`),
+			axios.get(`https://open.er-api.com/v6/latest/USD`)
+		  ])
+			.then(axios.spread((obj1, obj2) => {
+				setNews(obj1.data);
+				setTotalPage(obj1.data.totalResults);
+				setFinanceRates(obj2.data.rates);
+				setLoading(false);
+				console.log(obj2.data.rates);
+			}));
+	}, [pageNumber, language, category, setNews, setTotalPage, setLoading, setFinanceRates]);
 
 	
 
@@ -40,7 +43,7 @@ const Main = () => {
 				{
 					loading ? <h1 align="center">Hang on.. Fetching</h1> :
 						<>
-							<div className="leftcontainer">
+							<div className="left-container">
 								<div className="settings">
 									<select onChange={languageChange} value={language}>
 										<option value="ar">Arabic</option>
@@ -93,6 +96,9 @@ const Main = () => {
 									}
 									<Pages />
 								</div>
+							</div>
+							<div className="right-container">
+								<Finance />
 							</div>
 						</>
 				}

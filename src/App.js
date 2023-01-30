@@ -12,6 +12,7 @@ function App() {
 	const [loading, setLoading] = useState(true);
 	const [category, setCategory] = useState('business');
 	const [language, setLanguage] = useState('en');
+  const [financeRates, setFinanceRates] = useState('');
 
   const changepage = (page) => {
 		setPageNumber(page);
@@ -21,7 +22,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <AppContext.Provider value={{news, setNews, pageNumber, setPageNumber, totalPage, setTotalPage, loading, setLoading, category, setCategory, language, setLanguage, changepage}}>
+      <AppContext.Provider value={{news, setNews, pageNumber, setPageNumber, totalPage, setTotalPage, loading, setLoading, category, setCategory, language, setLanguage, changepage, financeRates, setFinanceRates}}>
         <Main />
         <Footer />
       </AppContext.Provider>

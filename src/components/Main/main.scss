@@ -7,24 +7,27 @@
     margin: 20px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 5fr 2fr;
     grid-gap: 20px;
-    .leftcontainer {
+
+    .left-container {
         .settings {
             padding-bottom: 20px;
             @include flexadjust(flex-start);
+            gap: 20px;
             select {
                 padding: 8px 20px;
                 background: $white;
                 border: 1px solid #e6e6e6;
                 font-size: 1em;
-                margin-right: 20px;
             }
         }
+
         .newscontainer {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 20px;
+
             .news {
                 background: $white;
                 color: $pureblack;
@@ -34,35 +37,46 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                box-shadow: 0 10px 20px rgba(100,100,100,0.1);
+                box-shadow: 0 10px 20px rgba(100, 100, 100, 0.1);
+
                 .newsimage {
+                    max-width: 100%;
+                    height: 200px;
                     width: 100%;
+                    object-fit: cover;
                 }
+
                 .newstitle {
                     margin-top: 1em;
                     text-decoration: none;
                     font-size: 1.25em;
                     color: #232323;
                     font-weight: 700;
+
                     &:hover {
                         text-decoration: underline;
                     }
                 }
+
                 .source {
                     margin-top: 6px;
                     color: #888;
                 }
+
                 .description {
                     margin-top: 12px;
                     text-align: justify;
                     word-break: break-all;
                 }
+
                 .links {
                     margin-top: 12px;
                     @include flexadjust(space-between);
+
                     .social {
                         display: flex;
                         gap: 6px;
+
                         .link {
                             display: inline-block;
                             width: 32px;
@@ -74,12 +88,20 @@
                             color: $white;
                             text-decoration: none;
                         }
-                        .fb { background: rgb(66, 103, 178); }
-                        .twt { background: rgb(29, 161,242); }
+
+                        .fb {
+                            background: rgb(66, 103, 178);
+                        }
+
+                        .twt {
+                            background: rgb(29, 161, 242);
+                        }
                     }
+
                     .readfull {
                         text-decoration: none;
                         color: $black;
+
                         &:hover {
                             text-decoration: underline;
                         }
@@ -88,8 +110,8 @@
             }
         }
     }
-    .rightcontainer {
-        margin-top: 76px;
+
+    .right-container {
         height: min-content;
         position: sticky;
         top: 90px;
@@ -99,6 +121,7 @@
 @media screen and (max-width: 900px) {
     .maincontainer {
         grid-template-columns: 1fr;
+
         .rightcontainer {
             margin-top: 0;
             position: initial;
@@ -106,9 +129,9 @@
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 776px) {
     .maincontainer {
-        .leftcontainer .newscontainer {
+        .left-container .newscontainer {
             grid-template-columns: 1fr;
         }
     }

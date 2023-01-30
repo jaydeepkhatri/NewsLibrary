@@ -1,6 +1,6 @@
 import "./main.scss";
-import React,{ useEffect, useContext } from "react";
-import { Pages, Finance} from "../";
+import React, { useEffect, useContext } from "react";
+import { Finance } from "../";
 import { BsFacebook } from "react-icons/bs";
 import { FaChevronRight } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
@@ -8,15 +8,15 @@ import axios from "axios";
 import { AppContext } from "../../App";
 
 const Main = () => {
-	const { pageNumber, language, category, loading, news, setNews, setTotalPage, setLoading, setLanguage, setCategory, setFinanceRates } = useContext(AppContext)
-	
+	const { pageNumber, language, category, loading, news, setNews, setTotalPage, setLoading, setLanguage, setCategory, setFinanceRates, setAvailHeight, setPageNumber } = useContext(AppContext)
+
 	useEffect(() => {
 		axios.all([
 			axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${pageNumber}&language=${language}&apiKey=${process.env.REACT_APP_KEY}`),
 			axios.get(`https://open.er-api.com/v6/latest/USD`)
-		  ])
+		])
 			.then(axios.spread((obj1, obj2) => {
-				setNews(obj1.data);
+				setNews([...news, obj1.data]);
 				setTotalPage(obj1.data.totalResults);
 				setFinanceRates(obj2.data.rates);
 				setLoading(false);
@@ -24,7 +24,17 @@ const Main = () => {
 			}));
 	}, [pageNumber, language, category, setNews, setTotalPage, setLoading, setFinanceRates]);
 
-	
+
+	document.body.addEventListener('scroll', () => {
+		console.log("Sad")
+		let current = document.documentElement.scrollTop || document.body.scrollTop;
+		if ((loading === false) && (current / document.body.scrollHeight > 0.8)) {
+			setPageNumber(pageNumber + 1);
+			console.log("Sad")
+		}
+	});
+
+
 
 	const languageChange = (e) => {
 		setLoading(true);
@@ -94,7 +104,6 @@ const Main = () => {
 											</div>
 										)
 									}
-									<Pages />
 								</div>
 							</div>
 							<div className="right-container">

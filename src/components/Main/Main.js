@@ -1,6 +1,9 @@
 import "./main.scss";
 import React,{ useState, useEffect } from "react";
 import {Pages} from "../";
+import { BsFacebook } from "react-icons/bs";
+import { FaChevronRight } from "react-icons/fa";
+import { AiOutlineTwitter } from "react-icons/ai";
 import axios from "axios";
 
 const Main = () => {
@@ -14,7 +17,6 @@ const Main = () => {
 		axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${pageNumber}&language=${language}&apiKey=${process.env.REACT_APP_KEY}`)
 			.then(
 				(e) => {
-					console.log(e.data)
 					setNews(e.data);
 					setTotalPage(e.data.totalResults);
 					setLoading(false);
@@ -87,10 +89,10 @@ const Main = () => {
 
 												<div className="links">
 													<div className="social">
-														<a href={`http://facebook.com/sharer/sharer.php?u=${article.url}&quote=${article.title}`} className="link fb"><i className="fab fa-facebook"></i></a>
-														<a href={`http://twitter.com/share?url=${article.url}`} className="link twt"><i className="fab fa-twitter"></i></a>
+														<a href={`http://facebook.com/sharer/sharer.php?u=${article.url}&quote=${article.title}`} className="link fb"><BsFacebook /></a>
+														<a href={`http://twitter.com/share?url=${article.url}`} className="link twt"><AiOutlineTwitter /></a>
 													</div>
-													<a href={article.url} referrerPolicy="no-referrer" className="readfull">Read More <i className="fa fa-chevron-right"></i></a>
+													<a href={article.url} referrerPolicy="no-referrer" className="readfull">Read More <FaChevronRight /></a>
 												</div>
 											</div>
 										)

@@ -4,20 +4,20 @@
 .maincontainer {
     max-width: 1200px;
     width: 100%;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 0 20px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 20px;
     .leftcontainer {
         .settings {
-            padding-bottom: 40px;
+            padding-bottom: 20px;
             @include flexadjust(flex-start);
             select {
                 padding: 8px 20px;
-                background: #BBB;
+                background: $white;
+                border: 1px solid #e6e6e6;
                 font-size: 1em;
-                border: 0;
                 margin-right: 20px;
             }
         }
@@ -28,8 +28,9 @@
             .news {
                 background: $white;
                 color: $pureblack;
-                padding: 12px 20px;
+                padding: 20px;
                 border: 1px solid #e6e6e6;
+                min-width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -54,12 +55,14 @@
                 .description {
                     margin-top: 12px;
                     text-align: justify;
+                    word-break: break-all;
                 }
                 .links {
                     margin-top: 12px;
                     @include flexadjust(space-between);
                     .social {
                         display: flex;
+                        gap: 6px;
                         .link {
                             display: inline-block;
                             width: 32px;
@@ -67,7 +70,6 @@
                             font-size: 16px;
                             @include flexcenter;
                             justify-content: center;
-                            margin-right: 6px;
                             border-radius: 50%;
                             color: $white;
                             text-decoration: none;
@@ -78,6 +80,9 @@
                     .readfull {
                         text-decoration: none;
                         color: $black;
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }

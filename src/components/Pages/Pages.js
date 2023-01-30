@@ -1,4 +1,5 @@
 import  React,{ useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./pages.scss";
 
 const Pages = ({ current, changepage, total }) => {
@@ -20,9 +21,9 @@ const Pages = ({ current, changepage, total }) => {
 
 	return (
 		<div className="pagescontainer">
-			{(prev > 0) ? <button className="pagebtn" onClick={previousPage}><i className="fa fa-chevron-left"></i></button> : null}
+			{(prev > 0) ? <button className="pagebtn" onClick={previousPage}><FaChevronLeft /></button> : null}
 			<h2>Page {current} of {totalpages}</h2>
-			{(next > totalpages) ? null : <button className="pagebtn" onClick={handleClick}><i className="fa fa-chevron-right"></i></button>}
+			{(next > totalpages) ? null : <button className="pagebtn" onClick={handleClick}><FaChevronRight /></button>}
 
 		</div>
 	)

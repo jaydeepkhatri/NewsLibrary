@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { FaChevronUp } from "react-icons/fa";
 import "./scrollup.scss";
 
 const ScrollUp = () => {
@@ -20,7 +21,7 @@ const ScrollUp = () => {
     }
 
     return (
-        <button className="scrollup" onClick={handleClick} ><i className="fa fa-chevron-up"></i></button>
+        <button className="scrollup" onClick={handleClick} ><FaChevronUp /></button>
     )
 }
 

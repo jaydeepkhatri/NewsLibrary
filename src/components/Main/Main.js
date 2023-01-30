@@ -1,18 +1,15 @@
 import "./main.scss";
-import React,{ useState, useEffect } from "react";
+import React,{ useEffect, useContext } from "react";
 import {Pages} from "../";
 import { BsFacebook } from "react-icons/bs";
 import { FaChevronRight } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
 import axios from "axios";
+import { AppContext } from "../../App";
 
 const Main = () => {
-	const [news, setNews] = useState('');
-	const [pageNumber, setPageNumber] = useState('1');
-	const [totalPage, setTotalPage] = useState('0');
-	const [loading, setLoading] = useState(true);
-	const [category, setCategory] = useState('business');
-	const [language, setLanguage] = useState('en');
+	const { pageNumber, language, category, loading, news, setNews, setTotalPage, setLoading, setLanguage, setCategory } = useContext(AppContext)
+	
 	useEffect(() => {
 		axios.get(`https://newsapi.org/v2/top-headlines?category=${category}&page=${pageNumber}&language=${language}&apiKey=${process.env.REACT_APP_KEY}`)
 			.then(
@@ -22,12 +19,9 @@ const Main = () => {
 					setLoading(false);
 				}
 			);
-	}, [pageNumber, language, category]);
+	}, [pageNumber, language, category, setNews, setTotalPage, setLoading]);
 
-	const changepage = (page) => {
-		setPageNumber(page);
-		setLoading(true);
-	}
+	
 
 	const languageChange = (e) => {
 		setLoading(true);
@@ -97,12 +91,11 @@ const Main = () => {
 											</div>
 										)
 									}
-									<Pages current={pageNumber} changepage={changepage} total={totalPage} />
+									<Pages />
 								</div>
 							</div>
 						</>
 				}
-
 			</div>
 		</>
 	)

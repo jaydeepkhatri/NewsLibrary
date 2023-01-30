@@ -4,7 +4,6 @@ import { AiOutlineGithub } from "react-icons/ai";
 
 const Navbar = () => {
 	return (
-
 		<nav className="navbar">
 			<div className="header-nav">
 				<h2 className="title">
@@ -15,7 +14,6 @@ const Navbar = () => {
 				</a>
 			</div>
 		</nav>
-
 	)
 }
 

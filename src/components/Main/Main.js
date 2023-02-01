@@ -8,7 +8,7 @@ import axios from "axios";
 import { AppContext } from "../../App";
 
 const Main = () => {
-	const { pageNumber, language, category, loading, news, setNews, setTotalPage, setLoading, setLanguage, setCategory, setFinanceRates, setAvailHeight, setPageNumber } = useContext(AppContext)
+	const { pageNumber, language, category, loading, news, setNews, totalPage, setTotalPage, setLoading, setLanguage, setCategory, setFinanceRates, setPageNumber } = useContext(AppContext)
 
 	useEffect(() => {
 		axios.all([
@@ -16,7 +16,8 @@ const Main = () => {
 			axios.get(`https://open.er-api.com/v6/latest/USD`)
 		])
 			.then(axios.spread((obj1, obj2) => {
-				setNews([...news, obj1.data]);
+				console.log(obj1.data.articles)
+				setNews(obj1.data.articles);
 				setTotalPage(obj1.data.totalResults);
 				setFinanceRates(obj2.data.rates);
 				setLoading(false);
@@ -25,12 +26,12 @@ const Main = () => {
 	}, [pageNumber, language, category, setNews, setTotalPage, setLoading, setFinanceRates]);
 
 
-	document.body.addEventListener('scroll', () => {
+	window.addEventListener('scroll', () => {
 		console.log("Sad")
 		let current = document.documentElement.scrollTop || document.body.scrollTop;
-		if ((loading === false) && (current / document.body.scrollHeight > 0.8)) {
-			setPageNumber(pageNumber + 1);
-			console.log("Sad")
+		if ((loading === false) && (current / document.body.scrollHeight > 0.8) && (pageNumber <= Math.ceil(totalPage / 20)	)) {
+			console.log("Sadsdasd")
+			setPageNumber(Number(pageNumber) + 1);
 		}
 	});
 
@@ -85,7 +86,7 @@ const Main = () => {
 
 								<div className="newscontainer">
 									{
-										news.articles.map((article, index) =>
+										news.map((article, index) =>
 											<div className="news" key={index}>
 												<div className="upper">
 													<img src={article.urlToImage} alt={article.title} className="newsimage" />
